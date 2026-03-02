@@ -16,9 +16,16 @@ Drawing from my background in **SCADA and Control Systems**, I designed this pip
 3. **Strategist Agent (Report Drafter):** Performs RAG to retrieve context-aware data and synthesizes a professional, actionable report.
 
 <div align="center">
-  <img src="<Path to your architecture diagram>" width="700px" alt="System Architecture">
+  <img src="https://github.com/user-attachments/assets/2e755a89-7dc8-4dcd-8490-4508b6231675" width="700px" alt="System Architecture">
 </div>
 
+## 🧠 Technical Deep Dive: Why Multi-Agent?
+
+Unlike a standard LLM prompt, this system uses a **State-Driven Multi-Agent architecture**. This provides three key advantages:
+
+1. **Precision Research:** By separating "Question Generation" from "Research," the system ensures it isn't just searching for a company name, but is actively hunting for specific competitive pillars (Pricing, Market Share, R&D).
+2. **Context Persistence (State Management):** Using `CompetitiveAnalysisState`, the system maintains a "short-term memory." If the research agent finds a new competitor, that info is saved to the state and passed to the strategist.
+3. **RAG-First Synthesis:** The "Report Strategist" agent is strictly grounded in the **ChromaDB** vector store. It cannot "hallucinate" competitor data; it must cite the search results retrieved by the previous agent.
 ---
 
 ## 🛠 Tech Stack & Engineering Rigor
